@@ -1,11 +1,11 @@
-from flask import Flask, render_template
-from app import views
+from flask import Blueprint, render_template
 
+views = Blueprint('views', __name__)
 
-app = Flask(__name__, static_folder="./frontend/static", template_folder="./frontend/templates")
+@views.route("/")
+def home_page():
+    return render_template("forum.html")
 
-app.register_blueprint(views.views, url_prefix="/")
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
+@views.route("/login")
+def login_page():
+    return render_template("login.html")
