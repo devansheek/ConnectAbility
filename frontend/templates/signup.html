@@ -52,8 +52,15 @@
                   <input type="password" name="password" id="password" placeholder="••••••••" class="jCHKuJ3G7rklx_LiAfbf PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa g3OYBOqwXUEW4dRGogkH MxG1ClE4KPrIvlL5_Q5x _Qk4_E9_iLqcHsRZZ4ge focus:ring-primary-500 focus:border-primary-500 ttxtqsLWp2pFRX8yUvWd jCISvWkW5oStPH6Wrb_H _4wtDMQ2AdJOlYvml5sL _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk _DJ2tfp6E9c_teMKVD3z a0Ed69aMSu0vgf4oysz0" required="">
               </div>
               <div class="kqgYncRJQ7spwKfig6It neyUwteEn7DOg9pBSJJE _T15kfOPGkvwZnqhqKce">
-
-                  <a href="#" id="reset_password" class="MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk text-primary-600 _5zvlMLkN1qETxEl3IhT dark:text-primary-500">Forgot password?</a>
+                  <div class="kqgYncRJQ7spwKfig6It __9yfFbPJuEYWBMy4kA9">
+                      <div class="kqgYncRJQ7spwKfig6It neyUwteEn7DOg9pBSJJE RRXFBumaW2SHdseZaWm6">
+                        <input id="remember" aria-describedby="remember" type="checkbox" class="kbeH5ty3CtPKxXm5TXph eVNhx7m5tjSVbfYQzDdT PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa YPSoR6AXtPgkmylUmcbT jCHKuJ3G7rklx_LiAfbf focus:ring-3 focus:ring-primary-300 _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk dark:focus:ring-primary-600 apRlbPZRJ4JWA5RVdURT" required="">
+                      </div>
+                      <div class="Ljy4iPgx864jXhJbnInL MxG1ClE4KPrIvlL5_Q5x">
+                        <label for="remember" class="K1PPCJwslha8GUIvV_Cr _Rz9TooiK_4jTN_Ub8Gm">Remember me</label>
+                      </div>
+                  </div>
+                  <a href="#" class="MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk text-primary-600 _5zvlMLkN1qETxEl3IhT dark:text-primary-500">Forgot password?</a>
               </div>
               <button type="submit" id="login" class="jCISvWkW5oStPH6Wrb_H wP9HMsqy6b96l2HBRbgb bg-primary-600 hover:bg-primary-700 _FONMPVaCsLFJJGDaaIL qHIOIw8TObHgD3VvKa5x focus:ring-primary-300 _A6LflweZRUwrcL6M2Tk _Qk4_E9_iLqcHsRZZ4ge MxG1ClE4KPrIvlL5_Q5x bFARDnno0HUtfhktTXfR _gKcj49wZgnwx1LpcJi6 _F_1gdhzusC6tSOWHtx_ dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in to your account</button>
               <p class="MxG1ClE4KPrIvlL5_Q5x XdjN1uxS_rsa3F90ox40 K1PPCJwslha8GUIvV_Cr eCx_6PNzncAD5yo7Qcic">
@@ -111,10 +118,8 @@
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
   import { getDatabase } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
   import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-  import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+  import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
   import { GoogleAuthProvider, signInWithPopup} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-
-
 
   // Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -145,13 +150,13 @@
       var email = document.getElementById('email').value;
       var password = document.getElementById('password').value;
 
-      signInWithEmailAndPassword(auth, email, password)
+      createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed up
     const user = userCredential.user;
 
 
-    alert('Logged in!');
+    alert('Signed up!');
     // ...
   })
     .catch((error) => {
@@ -186,8 +191,13 @@
     // ...
   });
 
+
+
+
+
 });
 
+  // const googleSignin = document.getElementById("google_signin");
 
 
 
